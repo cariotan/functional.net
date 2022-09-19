@@ -1,4 +1,4 @@
-﻿namespace RippleNetworks.Shared;
+﻿namespace Functional.Net;
 
 public class Result
 {
