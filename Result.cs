@@ -49,6 +49,14 @@ public class Result<T> : Result
 		}
 	}
 
+	public async Task IfSuccessfulAsync(Func<T, Task> action)
+	{
+		if(IsSuccessful)
+		{
+			await action(Value);
+		}
+	}
+
 	public TResult Match<TResult>(Func<T, TResult> f1, Func<IEnumerable<Error>, TResult> f2)
 	{
 		return IsSuccessful ? f1(Value) : f2(ErrorMessages.ToList());
