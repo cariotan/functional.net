@@ -1,9 +1,12 @@
-﻿namespace Functional.Net;
+﻿using System.Text.Json.Serialization;
+
+namespace Functional.Net;
 
 public class Result
 {
 	public bool IsSuccessful { get; init; }
-	public bool IsNotSuccessful { get; set; }
+	public bool IsNotSuccessful => !IsSuccessful;
+	[JsonIgnore]
 	public Error ErrorMessage
 	{
 		get => ErrorMessages.Any() ? ErrorMessages.First() : "";
