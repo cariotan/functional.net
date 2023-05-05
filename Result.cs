@@ -76,6 +76,7 @@ public class Result<T> : Result
 			f2(ErrorMessages.ToList());
 		}
 	}
+
 	public async Task MatchAsync(Func<T, Task> f1, Action<IEnumerable<Error>> f2)
 	{
 		if(IsSuccessful)
